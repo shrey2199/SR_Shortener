@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 
+import os
 import re
 from flask import Flask, render_template, request, redirect, url_for, session
 from flask_talisman import Talisman
@@ -198,4 +199,4 @@ def admin_accounts():
 
 # run the app.
 if __name__ == "__main__":
-    app.run()
+    app.run(port=os.environ.get('PORT', 80))
