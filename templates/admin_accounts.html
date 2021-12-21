@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Accounts</title>
+		<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css">
+		<link rel="stylesheet" href="{{ url_for('static', filename='result.css') }}">
+		<link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
+	</head>
+	<body class="loggedin">
+		<nav class="navtop">
+			<div>
+				<h1><img src="{{ url_for('static', filename='favicon.png') }}" height="45" width="45">Shrey URL Shortener</h1>
+                <a href="{{ url_for('admin_home') }}"><i class="fas fa-user"></i>Admin Home</a>
+				<a href="{{ url_for('logout') }}"><i class="fas fa-sign-out-alt"></i>Logout</a>
+			</div>
+		</nav>
+		<div class="content">
+            <h2>Accounts On Your Server</h2>
+            <div class="table-wrapper">
+                <table class='fl-table'>
+                    <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Name</th>
+                        <th>Username</th>
+                        <th>Password</th>
+                        <th>API Key</th>
+                        <th>Date Created</th>
+                        <th>Time Created</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {%for account in accounts%}
+                    <tr>
+                        <td><b>{{account[1]}}</b></td>
+                        <td><b>{{account[2]}}</b></td>
+                        <td><b>{{account[3]}}</b></td>
+                        <td><b>{{account[4]}}</b></td>
+                        <td><b>{{account[5]}}</b></td>
+                        <td><b>{{account[6].split()[0]}}</b></td>
+                        <td><b>{{account[6].split()[1].split('.')[0]}}</b></td>
+                    </tr>
+                    {%endfor%}
+                    <tbody>
+                </table>
+            </div>
+        </div>
+	</body>
+</html>

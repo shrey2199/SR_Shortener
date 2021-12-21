@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Admin Login</title>
+		<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css">
+		<link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
+	</head>
+	<body>
+		<div class="login">
+			<h1>ADMIN LOGIN</h1>
+			<div class="links">
+				<a href="{{ url_for('admin') }}" class="active">Admin Login</a>
+			</div>
+			<form action="{{ url_for('admin_home') }}" method="post">
+				<label for="admin_password">
+					<i class="fas fa-lock"></i>
+				</label>
+				<input type="password" name="admin_pass" placeholder="Admin Password" id="admin_pass" required>
+				<div class="msg"><b>{{ msg }}</b></div>
+				<input type="submit" value="Login">
+			</form>
+		</div>
+	</body>
+</html>

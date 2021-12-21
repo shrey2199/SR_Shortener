@@ -1,0 +1,40 @@
+{
+    "name": "SR Shortener",
+    "description": "A Heroku Based Shortener Service",
+    "logo": "",
+    "keywords": [
+      "Shortener",
+      "flask",
+      "heroku",
+      "python"
+    ],
+    "repository": "https://github.com/shrey2199/SR_Shortener",
+    "website": "https://github.com/shrey2199/SR_Shortener",
+    "success_url": "https://t.me/shrey_contact_bot",
+    "env": {
+      "WEBSITE_URL": {
+        "description": "URL of Server.",
+        "required": true
+      },
+      "ADMIN_PASS": {
+        "description": "Password for Admin",
+        "required": true
+      },
+      "UNIVERSAL_API": {
+        "description": "Universal API Key",
+        "required": true
+      }
+    },
+    "addons": [
+      {
+        "plan": "heroku-postgresql"
+      }
+    ],
+    "formation": {
+            "web": {
+                "quantity": 1,
+                "size": "free"
+            }
+      },
+      "stack": "container"
+}

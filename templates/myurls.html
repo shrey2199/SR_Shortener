@@ -1,0 +1,45 @@
+{% extends 'layout.html' %}
+
+{% block title %}Your URLs{% endblock %}
+
+{% block content %}
+<h2>Your Shortened URLs</h2>
+<h2><b>{{ msg }}</b></h2>
+<div class="table-wrapper">
+    <table class="fl-table">
+        <thead>
+        <tr>
+            <th>Date</th>
+            <th>Time</th>
+            <th>URL</th>
+            <th>Short URL</th>
+            <th>Views</th>
+            <th>Delete URL</th>
+        </tr>
+        </thead>
+        <tbody>
+        {%for url in myurls%}
+        <tr>
+            <td><b>{{url[2].split()[0]}}</b></td>
+            <td><b>{{url[2].split()[1].split('.')[0]}}</b></td>
+            <td class='CropLongTexts'><a href='{{url[3]}}'><b>{{url[3]}}</b></a></td>
+            <td><a href='{{root_url}}/{{url[4]}}'><b>{{url[4]}}</b></a></td>
+            <td><b>{{url[5]}}</b></td>
+            <td>
+                <form action="{{ url_for('delete') }}" method="post">
+                    <input type="hidden" name="api" value={{api_key}}>
+                    <button style="padding: 0; border: none; background: none; cursor: pointer;", name="del_url" value="{{url[4]}}" type="submit">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="red" class="bi bi-trash" viewBox="0 0 16 16">
+                            <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z"/>
+                            <path fill-rule="evenodd" d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z"/>
+                        </svg>
+                    </button>
+                </form>
+                
+            </td>
+        </tr>
+        {%endfor%}
+        <tbody>
+    </table>
+</div>
+{% endblock %}

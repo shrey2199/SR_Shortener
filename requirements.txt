@@ -1,0 +1,9 @@
+python-telegram-bot
+pyTelegramBotAPI
+requests
+telegraph
+psycopg2
+flask
+gunicorn
+flask-talisman
+jsonify

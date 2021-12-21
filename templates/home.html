@@ -1,0 +1,28 @@
+{% extends 'layout.html' %}
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+<h2>Home Page</h2>
+<p>Welcome <b>{{ username }}</b>, to Link Shortener Bot Web UI ! You Can Find Your URL History in My URLs Tab on Nav Bar !</p>
+<br><br>
+<center>
+<div class="login">
+    <h1>Shorten URL</h1>
+    <form action="{{ url_for('shorten') }}" method="post">
+        <label for="username">
+            <i class="fas fa-link"></i>
+        </label>
+        <input type="text" name="url" placeholder="URL" id="url" required>
+        <label for="password">
+            <i class="fas fa-lock"></i>
+        </label>
+        <input type="text" name="shorturl" placeholder="Custom Keyword" id="shorturl">
+        <input type="hidden" name="api" value={{api_key}}>
+        <h2><b>{{ msg }}</b></h2>
+        <h3><b><a href="{{  url  }}">{{ url }}</a></b></h3>
+        <input type="submit" value="Shorten">
+    </form>
+</div>
+</center>
+{% endblock %}
