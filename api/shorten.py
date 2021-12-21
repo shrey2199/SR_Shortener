@@ -1,4 +1,4 @@
-from __main__ import app
+from main import app
 from flask import request, jsonify, render_template, redirect, url_for, session
 import psycopg2
 from config import Config
