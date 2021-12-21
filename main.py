@@ -196,6 +196,6 @@ def admin_accounts():
     # User is not loggedin redirect to login page
     return redirect(url_for('admin_login'))
 
-# DEBUG SERVER
-if __name__ == '__main__':
-    app.run(debug=True, port=5000)
+# run the app.
+if __name__ == "__main__":
+    app.run()
