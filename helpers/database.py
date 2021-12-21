@@ -7,7 +7,6 @@ from random import *
 # CONFIG
 from config import Config
 
-BOT_TOKEN = Config.BOT_TOKEN
 DATABASE_URI = Config.DATABASE_URI
 
 charset = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
