@@ -1,1 +1,1 @@
-python3 main.py & python3 setup.py
+gunicorn main:app & python3 setup.py
