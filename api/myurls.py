@@ -24,9 +24,9 @@ def jsonify_urls(urls):
     return urls_json
 
 # http://localhost:5000/api/myurls - this will be the MyURLs endpoint for the API
-@app.route('/api/myurls', methods=['GET'])
+@app.route('/api/myurls', methods=['GET', 'POST'])
 def api_myurls():
-    if 'api' in request.form:
+    if request.method == 'POST' and 'api' in request.form:
         # Check if API is valid
         if db_check_api(request.form['api']):
             # API is valid
