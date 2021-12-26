@@ -31,6 +31,27 @@ def db_get_urls_by_id(id):
 
     return rows_list
 
+def db_get_urls_by_api(api):
+    '''Connecting with URI'''
+    conn = psycopg2.connect(DATABASE_URI)
+
+    '''Creating Cursor'''
+    cur = conn.cursor()
+
+    '''Fetch Data From Table'''
+    cmd = f"SELECT tg_id FROM accounts WHERE api = '{api}'"
+    cur.execute(cmd)
+    rows = cur.fetchall()
+    
+    id = rows[0][0]
+
+    rows_list = db_get_urls_by_id(id)
+
+    '''Close Cursor'''
+    cur.close()
+
+    return rows_list
+
 def db_createtable():
     '''Connecting with URI'''
     conn = psycopg2.connect(DATABASE_URI)

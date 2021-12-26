@@ -18,6 +18,7 @@ app.secret_key = 'jkshefdhvjshvdf9w8erwuerhv'
 # Import Routes
 from api import shorten
 from api import delete
+from api import myurls
 
 # DATABASE
 DATABASE_URI = Config.DATABASE_URI
